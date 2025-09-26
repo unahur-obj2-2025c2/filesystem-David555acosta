@@ -11,15 +11,35 @@
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <!-- Gestiona las versiones de JUnit -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.junit</groupId>
+                <artifactId>junit-bom</artifactId>
+                <version>5.12.0</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.12.0</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
+
     <build>
         <plugins>
 
@@ -27,50 +47,50 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.1.2</version>
+                <version>3.3.0</version>
                 <configuration>
-                    <!-- Asegura la compatibilidad con JUnit 5 -->
                     <forkCount>1</forkCount>
                     <reuseForks>true</reuseForks>
                 </configuration>
             </plugin>
 
-
             <!-- Plugin de JaCoCo -->
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.10</version> <!-- Usa la última versión disponible -->
+                <version>0.8.12</version>
                 <executions>
                     <execution>
                         <goals>
-                            <goal>prepare-agent</goal> <!-- Habilita el agente de JaCoCo -->
+                            <goal>prepare-agent</goal>
                         </goals>
                     </execution>
                     <execution>
                         <id>report</id>
-                        <phase>test</phase> <!-- Genera el informe después de las pruebas -->
+                        <phase>test</phase>
                         <goals>
-                            <goal>report</goal> <!-- Genera el informe de cobertura -->
+                            <goal>report</goal>
                         </goals>
                     </execution>
                 </executions>
             </plugin>
 
+            <!-- Plugin para generar el JAR ejecutable -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>3.2.0</version>
+                <version>3.3.0</version>
                 <configuration>
                     <archive>
-                    <manifest>
-                        <addClasspath>true</addClasspath>
-                        <mainClass>ar.edu.unahur.obj2.Main</mainClass>
-                    </manifest>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>ar.edu.unahur.obj2.Main</mainClass>
+                        </manifest>
                     </archive>
-            | </configuration>
+                </configuration>
             </plugin>
+
         </plugins>
-    </build>        
+    </build>
 
 </project>
