@@ -5,39 +5,35 @@ import java.util.*;
 public class Carpeta implements Ielemento {
 
     private String nombre;
-    private List<Ielemento> archivos = new ArrayList<>();
+    private List<Ielemento> elementos = new ArrayList<>();
 
-    public Carpeta(String nombre) {
+    public Carpeta(String nombre, List<Ielemento> elementos) {
         this.nombre = nombre;
+        this.elementos = elementos;
     }
 
     @Override
     public String nombre() {
+        // TODO Auto-generated method stub
         return this.nombre;
     }
 
     @Override
     public Integer tamanio() {
-        Integer resultado = 0;
-        if (!this.archivos.isEmpty()) {
-            resultado = this.archivos.stream().mapToInt(a -> a.tamanio()).sum();
-        }
-        return resultado;
+        // TODO Auto-generated method stub
+        return elementos.stream().mapToInt(e -> e.tamanio()).sum();
     }
 
     @Override
-    public void mostrar(Integer identacion) {
-        System.out.printf("\n" + "\t".repeat(identacion) + "├ Carpeta %s Nivel %d ( %d-Bytes )", nombre, identacion,
-                tamanio());
-        this.archivos.forEach(a -> a.mostrar(identacion + 1));
+    public void mostrar(Integer indentacion) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'mostrar'");
     }
 
     @Override
     public Ielemento archivoMasPesado() {
-        Ielemento masPesado = this.archivos.stream()
-                .max((a, b) -> Integer.compare(a.archivoMasPesado().tamanio(), b.archivoMasPesado().tamanio()))
-                .orElse(null);
-        return masPesado;
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'archivoMasPesado'");
     }
 
 }

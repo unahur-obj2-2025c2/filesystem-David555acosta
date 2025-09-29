@@ -14,18 +14,20 @@ public class Archivo implements Ielemento {
 
     @Override
     public String nombre() {
-
+        // TODO Auto-generated method stub
         return this.nombre;
     }
 
     @Override
     public Integer tamanio() {
+        // TODO Auto-generated method stub
         return this.tamanio;
     }
 
     @Override
-    public void mostrar(Integer identacion) {
-        System.out.printf("\n" + "\t".repeat(identacion) + "├ %s%s", nombre, extension);
+    public void mostrar(Integer indentacion) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'mostrar'");
     }
 
     @Override
