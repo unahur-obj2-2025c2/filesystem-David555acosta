@@ -16,6 +16,10 @@ public class Carpeta implements Ielemento {
         this.nombre = nombre;
     }
 
+    public List<Ielemento> getElementos() {
+        return elementos;
+    }
+
     @Override
     public String nombre() {
         // TODO Auto-generated method stub

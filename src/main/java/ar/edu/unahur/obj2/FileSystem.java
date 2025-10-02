@@ -24,8 +24,19 @@ public class FileSystem {
             throw new IllegalArgumentException("El argumento no es válido");
         }
 
-        return elementos.stream().max(Comparator.comparing(e -> e.tamanio()))
-                .orElse(new Archivo("archivo vacio", "", 0));
+        return elementos.stream().map(e -> e.archivoMasPesado()).max(Comparator.comparingInt(e -> e.tamanio()))
+                .orElse(new Archivo("Archivo vacio", "", 0));
+    }
+
+    // return elementos.stream().max(Comparator.comparingInt(e ->
+    // e.tamanio())).orElse(new Archivo("archivo vacio", "", 0));
+
+    public void agregarElemento(Ielemento elemento) {
+        elementos.add(elemento);
+    }
+
+    public void eliminarElemento(Ielemento elemento) {
+        elementos.remove(elemento);
     }
 
 }
