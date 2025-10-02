@@ -9,4 +9,19 @@ public class FileSystemTest {
     void dadaUnaCarpetaHacemosUnTestDePrueba() {
         assertTrue(Boolean.TRUE);
     }
+
+    @Test
+    void testArchivoMasPesado() {
+        
+    }
+
+    @Test
+    void testGetInstance() {
+        
+    }
+
+    @Test
+    void testTamanio() {
+        
+    }
 }
